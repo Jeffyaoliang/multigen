@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.8.0-runtime-ubuntu22.04
+FROM nvidia/cuda:11.8.0-devel-ubuntu22.04
 
 ARG DOCKER_UID=1000
 ARG DOCKER_GID=1000
@@ -44,7 +44,7 @@ RUN wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mini
     && bash "Miniforge3-$(uname)-$(uname -m).sh" -b -p ${HOME}/conda \
     && rm "Miniforge3-$(uname)-$(uname -m).sh"
 ENV PATH=${HOME}/conda/condabin:$PATH
-RUN mamba init bash
+
 
 ## Install uv
 RUN wget https://astral.sh/uv/install.sh \
